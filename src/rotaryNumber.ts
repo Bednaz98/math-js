@@ -27,24 +27,27 @@ export interface RotaryNumberConfig {
  * @input - string to get rotatory number for e.g userID, email
  * @time - input time to check, should be Date.now
  */
-export function getRotaryNumberArray(inputTime: number, inputID: string, config?: RotaryNumberConfig) {
+export function getRotaryNumberArray(inputTime: number, varString: string, config?: RotaryNumberConfig) {
     const hashArray: number[] = []
     const lengthValue = config?.length ?? 6
     const roundedTime = roundTime(inputTime, config?.divisorMinutes)
     for (let i = 0; i < lengthValue ?? 6; i++) {
-        const hashString = hash({ inputID, key: getTFKey(config?.TwoFactoryKey), rotary: roundedTime, i, change: i * roundedTime })
+        const hashString = hash({ varString, key: getTFKey(config?.TwoFactoryKey), rotary: roundedTime, i, change: i * roundedTime })
         hashArray.push(convertStringToNumber(hashString) % 10)
     }
     return hashArray;
 }
 
 
-export function getRotaryString(inputTime: number, inputID: string, config?: RotaryNumberConfig) {
-    const array = getRotaryNumberArray(inputTime, inputID, config)
+export function getRotaryString(inputTime: number, varString: string, config?: RotaryNumberConfig) {
+    const array = getRotaryNumberArray(inputTime, varString, config)
     array.reduce((p, c) => p + c, '');
     return array.reduce((p, c) => p + c, '');
 }
 
-export function compareRotaryNow(userString: string, inputID: string, config?: RotaryNumberConfig) {
-    return userString === getRotaryString(Date.now(), inputID, config)
+export function compareRotaryNow(userString: string, varString: string, config?: RotaryNumberConfig, checkTime?: number) {
+    const inputTime = checkTime ? checkTime : Date.now()
+    const genString = getRotaryString(inputTime, varString, config);
+    checkTime ? console.log(inputTime, genString, userString) : null
+    return userString === genString;
 }

@@ -54,9 +54,20 @@ describe('Rotary Numbers', () => {
         }
     });
     it('check rotary string', () => {
-        for (let i = 0; i < 5000; i++) {
-            const result = getRotaryString(Date.now() + i, inputString, config)
+        for (let i = 0; i < 10; i++) {
+            const directTime = i * 1000
+            const result = getRotaryString(Date.now() + directTime, inputString, config)
             expect(compareRotaryNow(result, inputString, config)).toBeTruthy()
+        }
+
+    })
+
+    it('check rotary direct time', () => {
+        for (let i = 0; i < 50; i++) {
+            const directTime = i * 60 * 1000 * (config?.divisorMinutes ?? 5) - 1;
+            const genRotary = getRotaryString(directTime, inputString, config)
+            const result = compareRotaryNow(genRotary, inputString, config, directTime)
+            expect(result).toBeTruthy()
         }
 
     })
