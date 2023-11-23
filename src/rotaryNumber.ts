@@ -48,6 +48,5 @@ export function getRotaryString(inputTime: number, varString: string, config?: R
 export function compareRotaryNow(userString: string, varString: string, config?: RotaryNumberConfig, checkTime?: number) {
     const inputTime = checkTime ? checkTime : Date.now()
     const genString = getRotaryString(inputTime, varString, config);
-    checkTime ? console.log(inputTime, genString, userString) : null
     return userString === genString;
 }

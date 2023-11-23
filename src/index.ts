@@ -5,6 +5,7 @@ import { gaussian, logisticFunction, logisticTimeStep, generateEmptyArray, divis
 export * from './misc';
 export * from './rotaryNumber';
 export * from './statistics';
+export * from "./vector";
 
 
 
