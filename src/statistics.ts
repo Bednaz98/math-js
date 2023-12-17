@@ -20,4 +20,4 @@ export function generateEmptyArray(amount: number) {
 
 export function division(value: number, devisor: number) {
     return { whole: Math.trunc(value / devisor), remainder: value % devisor }
-}
+};
