@@ -8,7 +8,7 @@ export function getTFTimeDevisor(minutes?: number): number {
 
 /** input time in milliseconds, same as Date.now */
 export function roundTime(inputTime: number, minutes?: number) {
-    const seconds = ((inputTime / 1000)) / getTFTimeDevisor(minutes);
+    const seconds = (Math.trunc(inputTime / 1000)) / getTFTimeDevisor(minutes);
     return Math.trunc(seconds)
 }
 

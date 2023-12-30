@@ -11,7 +11,7 @@ describe('Rotary Numbers', () => {
     it('roundTime Same time', () => {
 
         for (let i = 0; i < 1000; i++) {
-            const result1 = roundTime(Date.now() * i + 1, 1)
+            const result1 = roundTime(Date.now() * i + 2, 1)
             const result2 = roundTime(Date.now() * i, 1)
             expect(result1).toBe(result2)
         }
