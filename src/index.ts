@@ -1,3 +1,4 @@
+import { clampValue, interpolateLine, randomInRange } from "./mathFunctions";
 import { factorial } from "./factorial";
 import { convertStringToNumber } from "./misc"
 import { compareRotaryNow, getRotaryString } from "./rotaryNumber"
@@ -8,6 +9,7 @@ export * from './rotaryNumber';
 export * from './statistics';
 export * from "./vector";
 export * from './factorial';
+export * from './mathFunctions';
 
 
 
@@ -20,7 +22,10 @@ const math = {
     division,
     getRotaryString,
     compareRotaryNow,
-    factorial
+    factorial,
+    clampValue,
+    interpolateLine,
+    randomInRange
 }
 
 export default math

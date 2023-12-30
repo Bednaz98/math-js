@@ -1,4 +1,4 @@
-import { vector } from '../src'
+import { vector } from '../src/vector'
 
 describe('Vector Math', () => {
 
