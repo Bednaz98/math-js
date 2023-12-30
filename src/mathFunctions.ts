@@ -16,7 +16,12 @@ export function interpolateLine(value: number, config: interpolateConfig) {
     return y1 + (value - x1) * ((y2 - y1) / (x2 - x1));
 }
 
-export function randomInRange(min: number, max: number) {
+export function randomNumberInRange(min: number, max: number) {
     const temp = max - min
     return Math.random() * temp + min
+}
+
+export function randomIntInRange(min: number, max: number) {
+    const temp = max - min
+    return Math.round(Math.random() * temp + min)
 }

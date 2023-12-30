@@ -1,4 +1,4 @@
-import { clampValue, interpolateLine, randomInRange } from "./mathFunctions";
+import { clampValue, interpolateLine, randomIntInRange, randomNumberInRange, } from "./mathFunctions";
 import { factorial } from "./factorial";
 import { convertStringToNumber } from "./misc"
 import { compareRotaryNow, getRotaryString } from "./rotaryNumber"
@@ -25,7 +25,8 @@ const math = {
     factorial,
     clampValue,
     interpolateLine,
-    randomInRange
+    randomNumberInRange,
+    randomIntInRange
 }
 
 export default math
