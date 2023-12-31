@@ -1,8 +1,17 @@
-
 export function clampValue(value: number, min: number, max: number) {
     if (Boolean(value < min)) return min;
     if (Boolean(value > max)) return max;
-    return value;
+    return clampMax(clampMin(value, min), max);
+}
+
+export function clampMin(value: number, min: number) {
+    if (value < min) return value
+    return value
+}
+
+export function clampMax(value: number, max: number) {
+    if (value > max) return value
+    return value
 }
 
 export interface interpolateConfig {
@@ -25,3 +34,11 @@ export function randomIntInRange(min: number, max: number) {
     const temp = max - min
     return Math.round(Math.random() * temp + min)
 }
+
+export function randomBoolean() {
+    return randomIntInRange(0, 2) >= 1
+}
+
+export function division(value: number, devisor: number) {
+    return { whole: Math.trunc(value / devisor), remainder: value % devisor }
+};

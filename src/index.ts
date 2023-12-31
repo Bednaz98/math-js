@@ -1,8 +1,8 @@
-import { clampValue, interpolateLine, randomIntInRange, randomNumberInRange, } from "./mathFunctions";
+import { clampValue, division, interpolateLine, randomIntInRange, randomNumberInRange, } from "./mathFunctions";
 import { factorial } from "./factorial";
-import { convertStringToNumber } from "./misc"
+import { convertStringToNumber, generateEmptyArray } from "./misc"
 import { compareRotaryNow, getRotaryString } from "./rotaryNumber"
-import { gaussian, logisticFunction, logisticTimeStep, generateEmptyArray, division } from "./statistics"
+import { gaussian, logisticFunction, logisticTimeStep } from "./statistics"
 
 export * from './misc';
 export * from './rotaryNumber';
