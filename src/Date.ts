@@ -9,7 +9,7 @@ export function addDay(inputTime: number, addDays: number) {
 
 export function subtractDay(inputTime: number, addDays: number) {
     const date = new Date(inputTime);
-    const newValue = clampValue(date.getDate() - addDays, 1, 31)
+    const newValue = date.getDate() - addDays
     console.log(newValue)
     return date.setDate(newValue);
 }
