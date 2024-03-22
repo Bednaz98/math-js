@@ -17,7 +17,6 @@ describe('Date Functions', () => {
     it("subtractDay", () => {
         const time = 1000 * 60 * 60 * 24;
         for (let i = 0; i < 10; i++) {
-            console.log(i, subtractDay(time * 10, i), extractDayNumber(subtractDay(time * 10, i)));
             expect(extractDayNumber(subtractDay(time * 10, i))).toBe(11 - i);
         }
     })

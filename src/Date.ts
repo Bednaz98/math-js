@@ -8,6 +8,5 @@ export function addDay(inputTime: number, addDays: number) {
 
 export function subtractDay(inputTime: number, addDays: number) {
     const date = new Date(inputTime);
-    console.log(date.toUTCString())
     return sub(date, { days: addDays }).getTime()
 }
