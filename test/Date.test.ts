@@ -12,9 +12,9 @@ describe('Date Functions', () => {
 
     })
     it("subtractDay", () => {
-        const time = 1000 * 60 * 60 * 24 * 10;
+        const time = 1000 * 60 * 60 * 24;
         for (let i = 0; i < 10; i++) {
-            expect(extractDayNumber(subtractDay(time, i))).toBe(10 - i)
+            expect(extractDayNumber(subtractDay(time * 10, i))).toBe(10 - i)
         }
     })
 
