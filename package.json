@@ -19,6 +19,7 @@
     "test-pack": "npm i && npm run build && npm pack"
   },
   "dependencies": {
+    "date-fns": "^3.6.0",
     "object-hash": "^3.0.0"
   },
   "devDependencies": {

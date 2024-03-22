@@ -3,7 +3,7 @@ import { factorial } from "./factorial";
 import { convertStringToNumber, generateEmptyArray } from "./misc"
 import { compareRotaryNow, getRotaryString } from "./rotaryNumber"
 import { gaussian, logisticFunction, logisticTimeStep } from "./statistics"
-import { addDay, addCurrentDays, subtractCurrentDays, subtractDay } from "./Date";
+import { addDay, subtractDay } from "./Date";
 
 export * from './misc';
 export * from './rotaryNumber';
@@ -30,8 +30,6 @@ const math = {
     randomNumberInRange,
     randomIntInRange,
     addDay,
-    addCurrentDays,
-    subtractCurrentDays,
     subtractDay
 }
 
