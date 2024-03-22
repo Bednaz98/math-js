@@ -9,6 +9,8 @@ export function addDay(inputTime: number, addDays: number) {
 
 export function subtractDay(inputTime: number, addDays: number) {
     const date = new Date(inputTime);
+    console.log(date.toDateString())
+    console.log(date.getDate(), addDays)
     const newValue = date.getDate() - addDays
     console.log(newValue)
     return date.setDate(newValue);
