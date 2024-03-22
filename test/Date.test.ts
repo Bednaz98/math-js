@@ -3,18 +3,19 @@ import { addCurrentDays, addDay, subtractDay, subtractCurrentDays } from '../src
 
 const extractDayNumber = (checkDate: number) => Number((new Date(checkDate)).toDateString().split(" ")[2])
 describe('Date Functions', () => {
-
     it("addDay", () => {
         const time = 1000 * 60 * 60 * 24;
-        expect(extractDayNumber(addDay(time, 0))).toBe(1)
-        expect(extractDayNumber(addDay(time, 1))).toBe(2)
-        expect(extractDayNumber(addDay(time, 2))).toBe(3)
+
+        for (let i = 0; i > 10; i++) {
+            expect(extractDayNumber(addDay(time, i))).toBe(i + 1)
+        }
+
     })
     it("subtractDay", () => {
         const time = 1000 * 60 * 60 * 24 * 10;
-        expect(extractDayNumber(subtractDay(time, 0))).toBe(10)
-        expect(extractDayNumber(subtractDay(time, 1))).toBe(9)
-        expect(extractDayNumber(subtractDay(time, 2))).toBe(8)
+        for (let i = 0; i < 10; i++) {
+            expect(extractDayNumber(subtractDay(time, i))).toBe(10 - i)
+        }
     })
 
     it("check addCurrentDays", () => {
