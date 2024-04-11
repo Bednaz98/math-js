@@ -44,6 +44,7 @@ function multipleVectorByScalar(vector: Vector, scalar: number): Vector {
     const keys = Object.keys(vector)
     return keys.map(e => ({ [e]: Math.fround(vector[e] * scalar) })).reduce((p, c) => ({ ...p, ...c }), {})
 }
+
 function convertToUnitVector(vector: Vector) {
     return (multipleVectorByScalar(vector, (1 / getVectorNormal(vector))))
 }
@@ -54,7 +55,6 @@ function getVectorAngle(vectorA: Vector, vectorB: Vector) {
     return Math.fround(Math.acos(dot / normal))
 }
 
-function crossProduct(vectorA: Vector, vectorB: Vector) { }
-
+//function crossProduct(vectorA: Vector, vectorB: Vector) { }
 
 export const vector = { addVector, subtractVector, getVectorNormal, dotProduct, multipleVectorByScalar, convertToUnitVector, getVectorAngle }

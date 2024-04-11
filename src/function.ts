@@ -1,6 +1,4 @@
 
-
-
 export interface LinearValueConfig {
     xi: number,
     xf: number
@@ -13,8 +11,6 @@ export function getLinearValue(value: number, config: LinearValueConfig) {
     let dX = (xf - xi)
     dX === 0 ? dX = 1 : null;
     let m = dY / dX
-    //Number.isNaN(m) ? (m = 0) : null;
-    //Number.isFinite(m) ? m = 0 : null;
     const b = (xf * yi - xi * yf) / dX
     return (m * value) + b;
 }
@@ -22,18 +18,27 @@ export function getLinearValue(value: number, config: LinearValueConfig) {
 export interface PiecewiseLineData {
     [key: number]: number
 }
-export function piecewiseLine(value: number, scanData: number) {
+
+export function piecewiseLine(value: number, scanData: PiecewiseLineData) {
     const xValues = Object.keys(scanData).map(e => (Number(e) ?? 0));
-    const interLow = xValues.filter(e => e <= value)
-    const lowestNumber = (interLow?.[interLow.length - 1] ?? value);
-    const lowestY = (xValues[lowestNumber] ?? value);
-    const hightNumber = (xValues.filter(e => e >= value)[0] ?? value);
-    const highestY = (xValues[hightNumber] ?? value);
-    const config: LinearValueConfig = {
-        xi: lowestNumber,
-        xf: hightNumber,
-        yi: lowestY,
-        yf: highestY,
+    const yValues: number[] = Object.values(scanData)
+    let xi: number | null = null
+    let xf: number | null = null
+    let yi: null | number = null
+    let yf: null | number = null
+    for (let i = 0; i < xValues.length; i++) {
+        const current = xValues[i]
+        if (current < value) {
+            xi = xValues[i]
+            yi = yValues[i]
+        }
+        else if (current > value) {
+            xf = xValues[i]
+            yf = yValues[i]
+        }
     }
-    return getLinearValue(value, config)
+    if (xi === null || yi === null) return yValues[0] ?? value;
+    else if (xf === null || yf === null) return yValues[yValues.length - 1] ?? value;
+    const config: LinearValueConfig = { xi, xf, yi, yf, }
+    return getLinearValue(value, config);
 }
