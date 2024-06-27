@@ -5,6 +5,7 @@ import { compareRotaryNow, getRotaryString } from "./rotaryNumber"
 import { gaussian, logisticFunction, logisticTimeStep } from "./statistics"
 import { addDay, subtractDay } from "./Date";
 import { getLinearValue, piecewiseLine } from "./function";
+import { getRandomElement, getRandomObjectValues } from "./Array";
 
 export * from './misc';
 export * from './rotaryNumber';
@@ -14,6 +15,7 @@ export * from './factorial';
 export * from './mathFunctions';
 export * from './Date';
 export * from './function';
+export * from "./Array";
 
 const math = {
     convertStringToNumber,
@@ -32,7 +34,9 @@ const math = {
     addDay,
     subtractDay,
     getLinearValue,
-    piecewiseLine
+    piecewiseLine,
+    getRandomElement,
+    getRandomObjectValues
 }
 
 export default math
