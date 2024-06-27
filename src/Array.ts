@@ -1,7 +1,7 @@
 import { randomIntInRange } from "./mathFunctions"
 
 export function getRandomElement<T = any>(array: T[]) {
-    const index = randomIntInRange(0, (array.length ?? -1));
+    const index = randomIntInRange(0, (array.length > 0 ? array.length : -1));
     return (array?.[index] ?? undefined)
 }
 
