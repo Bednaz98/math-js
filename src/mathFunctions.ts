@@ -29,10 +29,17 @@ export function randomNumberInRange(min: number, max: number) {
     const temp = max - min
     return Math.random() * temp + min
 }
-
-export function randomIntInRange(min: number, max: number) {
-    const temp = max - min
-    return Math.round(Math.random() * temp + min)
+export enum RoundingMethod {
+    normal, floor, ceil
+}
+export function randomIntInRange(min: number, max: number, method = RoundingMethod.normal) {
+    const delta = max - min
+    const value = (Math.random() * delta) + min
+    switch (method) {
+        case RoundingMethod.normal: return Math.round(value)
+        case RoundingMethod.floor: return Math.floor(value)
+        case RoundingMethod.ceil: return Math.ceil(value)
+    }
 }
 
 export function randomBoolean() {
