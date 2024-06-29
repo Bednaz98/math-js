@@ -9,3 +9,8 @@ export function getRandomObjectValues<T = any>(object: { [key: string | number]:
     const values: T[] = Object.values(object);
     return getRandomElement<T>(values);
 }
+
+export function getRandomArrayFromObject<T = any>(object: { [key: string | number]: T }) {
+    const values = Object.values(object);
+    return getRandomElement<T>(values);
+}
