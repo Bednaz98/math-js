@@ -7,8 +7,7 @@ const array = generateEmptyArray(20)
 let pop: Vector = array.reduce((p, c) => ({ ...p, [c]: randomIntInRange(10, 50) }), {})
 const rate: Vector = array.reduce((p, c) => ({ ...p, [c]: randomNumberInRange(0.04, 0.3) }), {})
 const limits: Vector = array.reduce((p, c) => ({ ...p, [c]: randomIntInRange(1000, 10000) }), {})
-const e = (prim: string, agent: string) => {
-
+const e = (_prim: string, _agent: string) => {
     return randomNumberInRange(0, 0.3)
 }
 const iterate = 600
