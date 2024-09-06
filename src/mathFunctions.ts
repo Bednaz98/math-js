@@ -1,16 +1,14 @@
 export function clampValue(value: number, min: number, max: number) {
-    if (Boolean(value < min)) return min;
-    if (Boolean(value > max)) return max;
     return clampMax(clampMin(value, min), max);
 }
 
 export function clampMin(value: number, min: number) {
-    if (value < min) return value
+    if (value < min) return min
     return value
 }
 
 export function clampMax(value: number, max: number) {
-    if (value > max) return value
+    if (value > max) return max
     return value
 }
 
